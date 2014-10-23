@@ -1,5 +1,6 @@
+# -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-from emailsupport.utils.imap import get_unread_messages
+from emailsupport.utils.imap import get_unread_messages, delete_messages
 
 from models import Email, Submitter
 
@@ -16,6 +17,7 @@ def get_submitter_by_email(email, name):
 
 def download_and_save():
     email_list = []
+    uid_list = []
     for uid, message in get_unread_messages():
         submitter_data = message.sent_from[-1]
 
@@ -34,6 +36,7 @@ def download_and_save():
         except IndexError:
             pass
         email_list.append(email)
+        uid_list.append(uid)
 
     Email.objects.bulk_create(email_list)
-
+    delete_messages(uid_list)

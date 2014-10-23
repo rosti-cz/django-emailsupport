@@ -26,7 +26,8 @@ def get_unread_messages():
     return connection.messages(unread=True)
 
 
+def delete_messages(uid_list):
+    connection = _create_connection()
 
-if __name__ == '__main__':
-    import pprint
-    pprint.pprint(list(get_unread_messages()))
+    for uid in uid_list:
+        connection.delete(uid)
