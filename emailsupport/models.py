@@ -44,6 +44,9 @@ class Email(models.Model):
     def mark_as_closed(self):
         self.state = 0
 
+    def get_body(self):
+        return self.body or strip_tags(self.body_html)
+
 
 class Resolution(models.Model):
     user = models.ForeignKey(User)
@@ -59,7 +62,7 @@ class Resolution(models.Model):
                 'recipient_list': [self.email.submitter.address]}
 
     def get_message_content(self):
-        content = self.email.body or strip_tags(self.email.body_html)
+        content = self.email.get_body()
         content = '\r\n> '.join(content.splitlines())
         content = '\r\n> {}'.format(content)
         return '{}\r\n\r\n{}'.format(self.content, content)
