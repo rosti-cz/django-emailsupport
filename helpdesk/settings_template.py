@@ -83,3 +83,5 @@ EMAIL_FILE_PATH = '/tmp/app-messages'
 # EMAIL_HOST_USER = ''
 # EMAIL_PORT = 2525
 # EMAIL_SUBJECT_PREFIX = '[support]'
+
+NOTIFICATION_EMAIL_LIST = None
