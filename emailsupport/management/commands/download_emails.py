@@ -13,8 +13,7 @@ class Command(BaseCommand):
     help = 'Download emails'
 
     def handle(self, *args, **options):
-        download_and_save()
-        # try:
-        #     download_and_save()
-        # except Exception, e:
-        #     logger.error(str(e), extra={'exception': e, 'stack': True})
+        try:
+            download_and_save()
+        except Exception, e:
+            logger.error(str(e), extra={'exception': e, 'stack': True})
