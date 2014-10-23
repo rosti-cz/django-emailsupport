@@ -4,6 +4,7 @@ from django.db import models
 from django.conf import settings
 from django.utils.html import strip_tags
 from emailsupport.tasks import send_mail
+from emailsupport.manager import EmailManager
 
 
 User = settings.AUTH_USER_MODEL
@@ -31,6 +32,8 @@ class Email(models.Model):
     state = models.IntegerField(choices=EMAIL_STATES, default=1)
 
     created = models.DateTimeField(auto_now=True)
+
+    objects = EmailManager()
 
     class Meta:
         ordering = ('-created', '-state')
