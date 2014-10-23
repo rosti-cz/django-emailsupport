@@ -32,8 +32,9 @@ class EmailAdmin(admin.ModelAdmin):
     def render_change_form(self, *args, **kwargs):
         response = super(EmailAdmin, self).render_change_form(*args, **kwargs)
         email = response.context_data['original']
-        response.context_data['previous_email'] = self.get_previous_email(email)
-        response.context_data['next_email'] = self.get_next_email(email)
+        if email:
+            response.context_data['previous_email'] = self.get_previous_email(email)
+            response.context_data['next_email'] = self.get_next_email(email)
         return response
 
     def get_previous_email(self, email):
