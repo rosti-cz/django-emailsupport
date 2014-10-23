@@ -1,21 +1,30 @@
+# -*- coding: utf-8 -*-
 from __future__ import unicode_literals
+
 from imbox import Imbox
 
-HOST = 'mail.rosti.cz'
-USERNAME = 'support@rbas.cz'
-PASSWORD = 'support'
-USE_SSL = False
+from emailsupport import settings
+
+
+def _create_connection():
+    """
+    Create new IMAP connection
+
+    :rtype: imbox.Imbox
+    """
+    connection = Imbox(settings.EMAIL_HOST,
+                       username=settings.EMAIL_HOST_USER,
+                       password=settings.EMAIL_HOST_PASSWORD,
+                       ssl=settings.EMAIL_USE_SSL)
+
+    return connection
 
 
 def get_unread_messages():
-    imbox = Imbox(HOST,
-                  username=USERNAME,
-                  password=PASSWORD,
-                  ssl=USE_SSL)
+    connection = _create_connection()
 
-    # Unread messages
-    unread_messages = imbox.messages(unread=True)
-    return unread_messages
+    return connection.messages(unread=True)
+
 
 
 if __name__ == '__main__':
