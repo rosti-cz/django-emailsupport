@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-from emailsupport.utils.imap import get_unread_messages, delete_messages
+from emailsupport.utils.imap import get_unread_messages, mark_seen
 
 from models import Email, Submitter
 
@@ -39,4 +39,4 @@ def download_and_save():
         uid_list.append(uid)
 
     Email.objects.bulk_create(email_list)
-    delete_messages(uid_list)
+    mark_seen(uid_list)

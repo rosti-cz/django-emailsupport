@@ -26,8 +26,8 @@ def get_unread_messages():
     return connection.messages(unread=True)
 
 
-def delete_messages(uid_list):
+def mark_seen(uid_list):
     connection = _create_connection()
 
     for uid in uid_list:
-        connection.delete(uid)
+        connection.mark_seen(uid)
