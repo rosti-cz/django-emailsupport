@@ -1,0 +1,5 @@
+.field-body p, .field-body_html p{
+    white-space: pre;
+}
+
+.field-submitter p { font-weight: bolder }
