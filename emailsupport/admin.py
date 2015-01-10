@@ -12,7 +12,7 @@ class ResolutionInline(admin.StackedInline):
 
 
 class EmailAdmin(admin.ModelAdmin):
-    list_display = ('subject', 'submitter', 'get_state_display')
+    list_display = ('subject', 'submitter',  'created', 'get_state_display')
     inlines = [ResolutionInline]
     ordering = ('-state', '-created')
     change_form_template = 'admin/email_change_form.html'
