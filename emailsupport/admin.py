@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 
 from django.contrib import admin
 
-from models import Email, Resolution
+from models import Email, Resolution, Submitter
 
 
 class ResolutionInline(admin.StackedInline):
@@ -45,3 +45,4 @@ class EmailAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Email, EmailAdmin)
+admin.site.register(Submitter)
