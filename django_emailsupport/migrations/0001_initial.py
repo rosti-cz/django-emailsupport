@@ -39,7 +39,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='email',
             name='submitter',
-            field=models.ForeignKey(to='emailsupport.Submitter'),
+            field=models.ForeignKey(to='django_emailsupport.Submitter'),
             preserve_default=True,
         ),
     ]

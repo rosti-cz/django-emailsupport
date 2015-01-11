@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 import logging
 
 from django.core.management.base import BaseCommand
-from emailsupport.processor import download_and_save
+from django_emailsupport.processor import download_and_save
 
 logger = logging.getLogger('default')
 

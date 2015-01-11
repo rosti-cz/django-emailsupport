@@ -1,0 +1,17 @@
+{% extends "admin/change_form.html" %}
+
+{% load i18n %}
+
+{% block object-tools-items %}
+    {% if previous_email %}
+    <li>
+        <a href="{% url 'admin:django_emailsupport_email_change' previous_email.id %}">{% trans "⇦ Previous submitter message" %}</a>
+    </li>
+    {% endif %}
+    {% if next_email %}
+        <li>
+            <a href="{% url 'admin:django_emailsupport_email_change' next_email.id %}">{% trans "Next submitter message ⇨" %}</a>
+        </li>
+    {% endif %}
+    {{ block.super }}
+{% endblock %}

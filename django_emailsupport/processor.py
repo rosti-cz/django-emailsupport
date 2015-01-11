@@ -3,9 +3,9 @@ from __future__ import unicode_literals
 
 from django.conf import settings
 
-from emailsupport.utils.imap import get_unread_messages, mark_seen
-from emailsupport.settings import NOTIFICATION_EMAIL_LIST
-from emailsupport.tasks import send_mail
+from django_emailsupport.utils.imap import get_unread_messages, mark_seen
+from django_emailsupport.settings import NOTIFICATION_EMAIL_LIST
+from django_emailsupport.tasks import send_mail
 
 from models import Email, Submitter
 

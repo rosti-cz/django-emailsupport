@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 
 from imbox import Imbox
 
-from emailsupport import settings
+from django_emailsupport import settings
 
 
 def _create_connection():

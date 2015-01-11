@@ -9,7 +9,7 @@ class Migration(migrations.Migration):
 
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('emailsupport', '0001_initial'),
+        ('django_emailsupport', '0001_initial'),
     ]
 
     operations = [
@@ -19,7 +19,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('content', models.TextField()),
                 ('created', models.DateTimeField(auto_now=True)),
-                ('email', models.ForeignKey(to='emailsupport.Email')),
+                ('email', models.ForeignKey(to='django_emailsupport.Email')),
                 ('user', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
             ],
             options={

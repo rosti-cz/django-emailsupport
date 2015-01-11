@@ -3,8 +3,8 @@ from __future__ import unicode_literals
 from django.db import models
 from django.conf import settings
 from django.utils.html import strip_tags
-from emailsupport.tasks import send_mail
-from emailsupport.manager import EmailManager
+from django_emailsupport.tasks import send_mail
+from django_emailsupport.manager import EmailManager
 
 
 User = settings.AUTH_USER_MODEL

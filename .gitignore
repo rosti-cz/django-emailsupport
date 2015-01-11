@@ -1,7 +1,3 @@
-helpdesk/settings.py
-static/*
-
-
 # JetBrains IDE
 .idea
 
