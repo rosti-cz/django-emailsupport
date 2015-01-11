@@ -36,12 +36,12 @@ setup(
     author_email='rbas.cz@gmail.com',
     url='https://github.com/rosti-cz/django-emailsupport',
     packages=find_packages(),
-    license=read_file('LICENSE'),
+    license='MIT',
     install_requires=[
         'Django>=1.7', 'imbox',
     ],
     zip_safe=False,
-    package_data={'django_emailsupport': ['templates/admin/*', 'static/*/css/*']},
+    package_data={'django_emailsupport': ['templates/admin/*', 'static/*/css/*', 'LICENSE']},
     include_package_data=True,
     classifiers=(
         'Development Status :: 3 - Alpha',
